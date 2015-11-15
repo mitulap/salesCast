@@ -1,0 +1,8 @@
+{ 
+    "_id" : ObjectId("5642636a174204ddaa58517a"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-11T01:56:15.306+0000")
+}

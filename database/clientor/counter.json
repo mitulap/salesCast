@@ -1,0 +1,8 @@
+{ 
+    "_id" : ObjectId("5642651d174204ddaa58517b"), 
+    "counterId" : 1.0, 
+    "supermarketId" : "WM2566", 
+    "registrationId" : "5", 
+    "counterName" : "A", 
+    "serverId" : "001"
+}

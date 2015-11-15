@@ -1,0 +1,14 @@
+{ 
+    "_id" : ObjectId("562e7f23cb0c793217393528"), 
+    "product_id" : "PG1", 
+    "product_name" : "ParleG", 
+    "product_price" : "$3", 
+    "desc" : "biscuits"
+}
+{ 
+    "_id" : ObjectId("562e7f52cb0c793217393529"), 
+    "product_id" : "MR1", 
+    "product_name" : "Marrie", 
+    "product_price" : "$0.99", 
+    "desc" : "biscuits"
+}

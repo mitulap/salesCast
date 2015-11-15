@@ -1,0 +1,44 @@
+{ 
+    "_id" : ObjectId("562eb234d28a67b979162a6d"), 
+    "client_id" : "WM2566", 
+    "client_name" : "Walmart", 
+    "address" : {
+        "street" : "Storey Road", 
+        "city" : "San Jose", 
+        "zip" : "95122", 
+        "country" : "USA"
+    }, 
+    "contact" : {
+        "phone" : "111111111", 
+        "email" : "walmart@walmart.com"
+    }, 
+    "productInfo" : {
+        "product_id" : "PG1", 
+        "stock_min" : "10", 
+        "stock_current" : "25", 
+        "stock_max" : "100"
+    }, 
+    "counter" : [
+        {
+            "counterId" : "1", 
+            "counterName" : "A"
+        }, 
+        {
+            "counterId" : "2", 
+            "counterName" : "B"
+        }
+    ], 
+    "regId" : "7", 
+    "product_shelf" : [
+        {
+            "productType" : "Biscuits", 
+            "shelf" : "S111"
+        }, 
+        {
+            "productType" : "Cornflakes", 
+            "shelf" : "S121"
+        }
+    ], 
+    "serverId" : "001", 
+    "warehouses" : "WH001"
+}

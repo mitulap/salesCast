@@ -1,0 +1,7 @@
+{ 
+    "_id" : ObjectId("562ec657c8b51a48336e45a6"), 
+    "counter_id" : "1", 
+    "counter_name" : "A", 
+    "supermarket_id" : "WM2566", 
+    "reg_id" : "5"
+}

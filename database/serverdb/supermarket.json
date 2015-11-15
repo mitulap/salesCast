@@ -1,0 +1,110 @@
+{ 
+    "_id" : ObjectId("562eb234d28a67b979162a6d"), 
+    "client_id" : "WM2566", 
+    "client_name" : "Walmart", 
+    "address" : {
+        "street" : "Storey Road", 
+        "city" : "San Jose", 
+        "zip" : "95122", 
+        "country" : "USA"
+    }, 
+    "contact" : {
+        "phone" : "111111111", 
+        "email" : "walmart@walmart.com"
+    }, 
+    "productInfo" : {
+        "product_id" : "PG1", 
+        "stock_min" : "10", 
+        "stock_current" : "25", 
+        "stock_max" : "100"
+    }, 
+    "regId" : "7", 
+    "product_shelf" : [
+        {
+            "productType" : "Biscuits", 
+            "shelf" : "S111"
+        }, 
+        {
+            "productType" : "Cornflakes", 
+            "shelf" : "S121"
+        }
+    ], 
+    "warhouses" : "WH001", 
+    "observe" : "0"
+}
+{ 
+    "_id" : ObjectId("56467506aa22e49e5a8aea7a"), 
+    "client_id" : "WM2568", 
+    "client_name" : "Walmart3", 
+    "address" : {
+        "street" : "Storey Road", 
+        "city" : "San Jose", 
+        "zip" : "95122", 
+        "country" : "USA"
+    }, 
+    "contact" : {
+        "phone" : "111111111", 
+        "email" : "walmart@walmart.com"
+    }, 
+    "productInfo" : {
+        "product_id" : "PG2", 
+        "stock_min" : "10", 
+        "stock_current" : "25", 
+        "stock_max" : "100"
+    }, 
+    "regId" : "8", 
+    "product_shelf" : [
+        {
+            "productType" : "Biscuits", 
+            "shelf" : "S111"
+        }, 
+        {
+            "productType" : "Cornflakes", 
+            "shelf" : "S121"
+        }
+    ], 
+    "warhouses" : "WH001", 
+    "observe" : "1"
+}
+{ 
+    "_id" : ObjectId("5645301d72e2460128f358e1"), 
+    "client_id" : "WM2567", 
+    "client_name" : "Walmart2", 
+    "address" : {
+        "street" : "Storey Road", 
+        "city" : "San Jose", 
+        "zip" : "95122", 
+        "country" : "USA"
+    }, 
+    "contact" : {
+        "phone" : "111111111", 
+        "email" : "walmart@walmart.com"
+    }, 
+    "productInfo" : [
+        {
+            "product_id" : "PG2", 
+            "stock_min" : "20", 
+            "stock_current" : "8", 
+            "stock_max" : "100"
+        }, 
+        {
+            "product_id" : "PG4", 
+            "stock_min" : "10", 
+            "stock_current" : "9", 
+            "stock_max" : "100"
+        }
+    ], 
+    "regId" : "8", 
+    "product_shelf" : [
+        {
+            "productType" : "Biscuits", 
+            "shelf" : "S111"
+        }, 
+        {
+            "productType" : "Cornflakes", 
+            "shelf" : "S121"
+        }
+    ], 
+    "warhouses" : "WH001", 
+    "observe" : "1"
+}
