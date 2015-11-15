@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Sales Cast</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+<script src="controller.js"></script>
+
+<style type="text/css">
+	body{
+		/*margin-top: 60px;*/
+	}
+
+</style>
+
+</head>
+<body ng-app="application">
+
+<div class="navigation-panel">
+	<div ng-include="'/header.html'"></div>
+</div>
+
+<div class="container" >
+<h1> Check In </h1>
+
+
+
+<div ng-controller="shelf">
+<label for="product">Client Details</label>
+		<input list="products" class="form-control" placeholder="Product Name" id="product" ng-model="product.productId">
+			 <datalist id="products" ng-model="selectedProducts" >
+			<option data-ng-repeat="product in products" value=" {{product.product_name}}">select </option>
+  
+		</datalist>
+		<br>
+		<button class="btn btn-default" id="addProduct"><p class="glyphicon glyphicon-plus" ng-click="displayProduct()"> <b> Add A Product</b> </p> </button>
+
+
+		<br>
+
+
+		<div id="productdetails" > 
+<br>
+	 <table class="table table-bordered" ng-model="prod">
+	 	<th>Id</th>
+	 	<th> Name</th>
+	 	<th> Type</th>
+	 	<th> Price</th>
+	 	
+<tr ng-repeat="p in productDetails">
+
+	<td>{{p.product_id}}</td>
+	<td>{{p.product_name}}</td>
+	<td>{{p.desc}}</td>
+	<td>{{p.product_price}}</td>
+	
+</tr> 
+
+
+</table>
+</div>
+
+<button class="btn btn-success" id="requestRead" ng-click="requestRead()"><b> Request Read</b> </button>
+
+
+<div id="shelfDetails" > 
+<br>
+	 <table class="table table-bordered">
+	 	<th>Id</th>
+	 	<th> shelf</th>
+	 	
+	 <!--ng-repeat="s in shelfDetails"	-->
+<tr ng-repeat="s in shelfDetails">
+
+	<td>{{s.productId}}</td>
+	<td>{{s.shelf}}</td>
+	
+	
+</tr> 
+
+
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+</body>
+</html>

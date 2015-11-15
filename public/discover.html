@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Sales Cast</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+<script src="controller.js"></script>
+
+<style type="text/css">
+	body{
+		/*margin-top: 60px;*/
+	}
+
+</style>
+
+</head>
+<body ng-app="application">
+
+<div class="navigation-panel">
+	<div ng-include="'/header.html'"></div>
+</div>
+
+<div class="container" >
+<div id="clientdiv"  ng-controller="discover">
+			<label for="client">Client Details</label>
+		<input list="clients" class="form-control" placeholder="Search Counter by  Supermarket" id="client" ng-model="discoverClient.supermarketId">
+			 <datalist id="clients" ng-model="selectedSupermarket" >
+			<option data-ng-repeat="supermarket in supermarkets" value=" {{supermarket.client_id}}">select </option>
+  
+		</datalist>
+<p id="displayprod"></p>
+<br>
+<button class="btn btn-default" ng-click="discover()"> Discover Client </button>
+
+<br>	
+
+	
+
+
+<div id="clientdetails" > 
+<br>
+	 <table class="table table-bordered">
+	 	<th>CounterId</th>
+	 	<th> CounterName</th>
+<tr ng-repeat="c in clientDetails" >
+	<td>{{c.counter_id}}</td>
+	<td>{{c.counter_name}}</td>
+</tr> 
+</table>
+</div>
+
+</div>
+
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+</body>
+</html>
