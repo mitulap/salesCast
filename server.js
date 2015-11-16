@@ -16,9 +16,9 @@ console.log("Server is running on port 3000");
 
 
 app.post('/discover',function(req,res){
-	var supermarketId=req.body.supermarketId;
-	
-	 serverdb.counter.find({query:{supermarket_id: supermarketId}},function(err,doc){
+  var supermarketId=req.body.supermarketId;
+  
+   serverdb.counter.find({query:{supermarket_id: supermarketId}},function(err,doc){
         console.log(doc);
         res.json(doc);
     }); 
@@ -27,40 +27,35 @@ app.post('/discover',function(req,res){
 
 app.get('/populate',function(req,res){
 
-	clientdb.supermarket.find(function(err,doc){
+  clientdb.supermarket.find(function(err,doc){
 
-		console.log(doc);
-		res.json(doc);
-	});
+    console.log(doc);
+    res.json(doc);
+  });
 
 })
 
 /*app.post('/read',function(req,res){
-
-	//
-
-	clientdb.supermarket.findAndModify({query:{}, update: {$set{stock_current: }},new: true},function(err,doc){
-
-	})
-
-
+  //
+  clientdb.supermarket.findAndModify({query:{}, update: {$set{stock_current: }},new: true},function(err,doc){
+  })
 })
 */
 
 app.get('/populateProduct',function(req,res){
 
-	clientdb.product.find(function(err,doc){
+  clientdb.product.find(function(err,doc){
 
-		
-		res.json(doc);
-	});
+    
+    res.json(doc);
+  });
 
 })
 
 app.post('/productDetails',function(req,res){
-	var productName=req.body.productId;
-	
-	 serverdb.product.find({query:{product_name: productName}},function(err,doc){
+  var productName=req.body.productId;
+  
+   serverdb.product.find({query:{product_name: productName}},function(err,doc){
         
         res.json(doc);
     }); 
@@ -68,9 +63,9 @@ app.post('/productDetails',function(req,res){
 });
 
 app.post('/productDetailsRead',function(req,res){
-	console.log("HIIIIII")
-	console.log(req.body[0].desc);
-	 serverdb.supermarket.find({client_id: "WM2566"}).toArray(function(err,doc){
+  console.log("HIIIIII")
+  console.log(req.body[0].desc);
+   serverdb.supermarket.find({client_id: "WM2566"}).toArray(function(err,doc){
        // console.log(doc[0].product_shelf[0].productType);
        var data=[];
        console.log( req.body.length);
@@ -80,27 +75,27 @@ app.post('/productDetailsRead',function(req,res){
 
 
        for( var i=0; i < req.body.length; i++){
-       	for(var j=0; j < doc[0].product_shelf.length; j++){
+        for(var j=0; j < doc[0].product_shelf.length; j++){
         if(doc[0].product_shelf[j].productType.toLowerCase()==req.body[i].desc.toLowerCase()){
-        	
-        	var shelf=doc[0].product_shelf[j].shelf
-        	data.push({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"});
-        	/* var batch = serverdb.shelf_productId.initializeUnorderedBulkOp({useLegacyOps: true});
-     			batch.insert({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"});*/
-        	/*serverdb.shelf_productId.insert({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"}, function(err,docs){
-        	
-        		data.push(docs);
-        		console.log(data);
-        		
-        	});*/
+          
+          var shelf=doc[0].product_shelf[j].shelf
+          data.push({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"});
+          /* var batch = serverdb.shelf_productId.initializeUnorderedBulkOp({useLegacyOps: true});
+          batch.insert({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"});*/
+          /*serverdb.shelf_productId.insert({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"}, function(err,docs){
+          
+            data.push(docs);
+            console.log(data);
+            
+          });*/
 
 
-        	}
+          }
         }
     }
 
    /* batch.execute(function(err,docs){
-    	 res.json(docs);
+       res.json(docs);
     })
        */
        console.log("Data"+ data);
@@ -132,17 +127,17 @@ var data=[];
 
 
 for(var i=0;i<req.body.length;i++){
-	clientdb.shelf_productId.insert(req.body[i],function(err,doc){
-			console.log(doc);
-			data.push(doc)
-	});
+  clientdb.shelf_productId.insert(req.body[i],function(err,doc){
+      console.log(doc);
+      data.push(doc)
+  });
 }
 
 
 res.json(data);
 
 
-});	 
+});  
 
 
 //function to get Supermarket's and toggle Observe
@@ -280,5 +275,4 @@ app.post('/updateRegInfo', function(req, res){
 });
 
 
-//Methods for updatereginfo.html page - start
-
+//Methods for updatereginfo.html page - end
