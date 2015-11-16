@@ -113,6 +113,24 @@ $scope.requestRead=function(){
 			});*/
 }
 
+//execute
+$scope.execute=function(){
+	var sendDetails=JSON.stringify($scope.productDetails);
+	
+	
+	$http.post('/productDetailsExecute',sendDetails).success(function(response){
+			
+			$scope.stockDetails=response;
+			
+			console.log("In the stock Details")
+			console.log($scope.stockDetails)
+
+			
+	});
+}
+
+
+
 
 
 
