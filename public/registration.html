@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="regApp">
 <head>
 	<title>Sales Cast</title>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
@@ -22,15 +23,38 @@
 	<div ng-include="'/header.html'"></div>
 </div>
 
-<div class="container">
-<h1>Data of template page will come here.</h1>
-
-<input ng-model="app">
+<div class="container" ng-controller="registrationController">
+<h2>Registration</h2>
 
 
+<form name="form">
+	<div class="form-group">
+      <label for="clientName">Client Name:</label>
+      <input type="text" class="form-control input-small" id="clientName" ng-model="regData.clientName" placeholder="Enter Client's Name" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Client's ID:</label>
+      <input type="text" class="form-control input-small" id="clientId" ng-model="regData.clientId" placeholder="Enter Client's ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Registration ID:</label>
+      <input type="text" class="form-control input-small" id="regId" ng-model="regData.regId" placeholder="Enter Registration ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Description:</label>
+      <input type="text" class="form-control input-small" id="desc" ng-model="regData.desc" placeholder="Enter Description" >
+    </div>
 
+    <div><button class="btn btn-primary" ng-click="registerDevice()">Register</button></div>
+
+    </form>
+    <br>
+	<div>
+		<label>Server Response: <div><p>{{resData}}</p></div></label>
+	</div>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="controllers/registrationController.js"></script>
 </body>
 </html>

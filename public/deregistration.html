@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="drApp">
 <head>
 	<title>Sales Cast</title>
 	<!-- Latest compiled and minified CSS -->
@@ -8,11 +8,6 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
- 
-	
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
-
 
 <style type="text/css">
 	body{
@@ -28,16 +23,29 @@
 	<div ng-include="'/header.html'"></div>
 </div>
 
-<div class="container">
-<h1>Sales Cast</h1>
+<div class="container" ng-controller="deregistrationController">
+<h2>De-registration</h2>
 
-<input ng-model="app">
-{{app}}
+<form name="form">
+    <div class="form-group">
+      <label for="clientId">Client's ID:</label>
+      <input type="text" class="form-control input-small" id="clientId" ng-model="drData.clientId" placeholder="Enter Client's ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Registration ID:</label>
+      <input type="text" class="form-control input-small" id="regId" ng-model="drData.regId" placeholder="Enter Registration ID" >
+    </div>
 
+    <div><button class="btn btn-primary" ng-click="deregisterDevice()">De-Register</button></div>
 
+    </form>
+    <br>
+	<div>
+		<label>Server Response: <div><p>{{resData}}</p></div></label>
+	</div>
 
 </div>
-{{app}}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="controllers/deregistrationController.js"></script>
 </body>
 </html>

@@ -15,14 +15,23 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ><a href="/market.html">Super Market<span class="sr-only">(current)</span></a></li>
-        <li><a href="/registration.html">Registration</a></li>
         <li><a href="/bootstrap.html">Bootstrap</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Registration
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/registration.html">Register</a></li>
+            <li><a href="/deregistration.html">De-Register</a></li>
+            <li><a href="/updatereginfo.html">Update</a></li> 
+          </ul>
+        </li>
         <li> <a href="/discover.html"> Discover </a></li>
         <li><a href="/shelf.html"> Shelf </a></li>
         <li><a href="/observe.html">Observe</a></li>
+        
 
 
-       <!--  <li class="dropdown">
+        <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle"{
     
 
@@ -31,7 +40,8 @@
         var seq = response;
         seq = seq[0].sequence_value;
         console.log($scope.client);
-        $scope.client.reg_ data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        $scope.client.reg_ data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown 
+        <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="updateApp">
 <head>
-	<title>Sales Cast - Bootstrap</title>
+	<title>Sales Cast</title>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -14,10 +14,6 @@
 		/*margin-top: 60px;*/
 	}
 
-	input[type=text]{
-		width:600px;
-	}
-
 </style>
 
 </head>
@@ -27,33 +23,38 @@
 	<div ng-include="'/header.html'"></div>
 </div>
 
-<div class="container" ng-controller="bootstrapController">
-
-	<h2>Bootstrapping</h2>
+<div class="container" ng-controller="updateregistrationController">
+<h2>Update Registration Details</h2>
 
 <form name="form">
 	<div class="form-group">
-      <label for="clientName">Enter Client Name:</label>
-      <input type="text" class="form-control input-small" id="clientName" ng-model="bsData.clientName" placeholder="Enter Client's Name" >
+      <label for="clientName">Client Name:</label>
+      <input type="text" class="form-control input-small" id="clientName" ng-model="uregData.clientName" placeholder="Enter Client's Name" >
     </div>
     <div class="form-group">
-      <label for="clientId">Enter Client's ID:</label>
-      <input type="text" class="form-control input-small" id="clientId" ng-model="bsData.clientId" placeholder="Enter Client's ID" >
+      <label for="clientId">Client's ID:</label>
+      <input type="text" class="form-control input-small" id="clientId" ng-model="uregData.clientId" placeholder="Enter Client's ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Registration ID:</label>
+      <input type="text" class="form-control input-small" id="regId" ng-model="uregData.regId" placeholder="Enter Registration ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Description:</label>
+      <input type="text" class="form-control input-small" id="desc" ng-model="uregData.desc" placeholder="Enter Description" >
     </div>
 
-    <div><button class="btn btn-primary" ng-click="bootstrapDevice()">Bootstrap</button></div>
+    <div><button class="btn btn-primary" ng-click="updateregisterDevice()">Update Info</button></div>
 
-    </form>
+</form>
     <br>
 	<div>
 		<label>Server Response: <div><p>{{resData}}</p></div></label>
 	</div>
-		
-
 
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-<script src="controllers/bootstrapController.js"></script>
+<script src="controllers/updatereginfocontroller.js"></script>
 </body>
 </html>
