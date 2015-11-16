@@ -6,6 +6,9 @@ app.use(express.static(__dirname + "/public"));
 var bodyParser=require('body-parser');
 var mongojs=require('mongojs');
 
+
+var bootstrapData = mongojs('serverdb',['bootstrapIds']);
+
 var clientdb=mongojs('clientor',['counter','product','shelf_productId','supermarket','warehouse']);
 var serverdb=mongojs('serverDb',['counter','increment','product','sales','shelf_productId','supermarket','warehouse']);
 app.use(bodyParser.json());
@@ -179,5 +182,24 @@ app.put('/toggleObserve/:id/:flagg',function(req,res){
     }); 
 }); //end of to
 
+
+//Methods for bootstrap.html page - Start
+app.post('/bsAdd', function (req, res){
+  console.log(req.body);
+
+  bootstrapData.bootstrapIds.find({clientId: req.body.clientId},
+    function(err, doc){
+      if(doc.length){
+        res.json("CLient Already exists in bootstrap database");
+      }else{
+        bootstrapData.bootstrapIds.insert(req.body, function(err, doc){
+          res.json(doc._id);
+        });
+      }
+  });
+  
+});
+
+//Methods for bootstrap.html page - End
 
 
