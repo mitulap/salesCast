@@ -203,3 +203,84 @@ app.post('/bsAdd', function (req, res){
 //Methods for bootstrap.html page - End
 
 
+//Methods for registration.html page - start
+
+app.post('/registration', function (req, res){
+  console.log(req.body);
+
+  serverdb.registrationdata.find({clientId: req.body.clientId},
+    function(err, doc){
+      console.log("Inside the ");
+      if(doc.length){
+        res.json("Client Already registered in database");
+      }else{
+
+        //
+        serverdb.bootstrapIds.find({ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.clientId}]}, function(err, doc){
+          console.log(doc);
+          if(doc.length){
+            serverdb.registrationdata.insert(req.body, function(err, doc){
+              res.json("Client Registered Successfully");
+            });
+          }else{
+            res.json("Bootstrap your client to register");
+          }
+
+        });
+        
+      }
+  });
+  
+});
+
+//Methods for registration.html page - end
+
+//Methods for deregistration.html page - start
+
+
+app.post('/deregistration', function(req, res){
+
+  console.log(req.body);
+
+  /*{ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.clientId}]}*/
+  serverdb.registrationdata.find({ $and: [{regId: req.body.regId}, {clientId: req.body.clientId}]}, function(err, doc){
+    if(doc.length){
+      serverdb.registrationdata.remove({clientId: req.body.clientId}, function(err, doc){
+        res.json("Client de-resitered Successfully.")
+      });
+    }else{
+      res.json("Client details not found. Please enter correct data to deregister.")
+
+      /*db.contactList.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
+        res.json(doc);
+      });*/
+    }
+  });
+
+});
+
+//Methods for deregistration.html page - end
+
+//Methods for updatereginfo.html page - start
+
+app.post('/updateRegInfo', function(req, res){
+
+    serverdb.registrationdata.find({$and: [{regId: req.body.regId}, {clientId: req.body.clientId}]}, function(err, doc){
+      console.log(req.body);
+      if(doc.length){
+        serverdb.registrationdata.update(
+          {clientId: req.body.clientId},
+          {$set: {clientName: req.body.clientName, desc: req.body.desc}},
+          function(errr, result){
+            res.json("Data Updated Successfully.");
+          });
+      }else{
+        res.json("Data does not match. Please enter correct Cleint Id and Registration Id");
+      }
+
+    });
+
+});
+
+//Methods for updatereginfo.html page - start
+
