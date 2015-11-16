@@ -36,14 +36,9 @@ app.get('/populate',function(req,res){
 })
 
 /*app.post('/read',function(req,res){
-
   //
-
   clientdb.supermarket.findAndModify({query:{}, update: {$set{stock_current: }},new: true},function(err,doc){
-
   })
-
-
 })
 */
 
@@ -279,4 +274,5 @@ app.post('/updateRegInfo', function(req, res){
 
 });
 
-//Methods for updatereginfo.html page - start
+
+//Methods for updatereginfo.html page - end
