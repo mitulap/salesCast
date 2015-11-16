@@ -279,3 +279,6 @@ app.post('/updateRegInfo', function(req, res){
 
 });
 
+
+//Methods for updatereginfo.html page - start
+
