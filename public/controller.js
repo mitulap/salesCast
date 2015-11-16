@@ -113,6 +113,7 @@ $scope.requestRead=function(){
 			});*/
 }
 
+
 $scope.execute=function(){
 	var sendDetails=JSON.stringify($scope.productDetails);
 	
@@ -127,6 +128,7 @@ $scope.execute=function(){
 			
 	});
 }
+
 
 
 
