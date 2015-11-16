@@ -10,7 +10,7 @@ var mongojs=require('mongojs');
 var bootstrapData = mongojs('serverdb',['bootstrapIds']);
 
 var clientdb=mongojs('clientor',['counter','product','shelf_productId','supermarket','warehouse']);
-var serverdb=mongojs('serverDb',['counter','increment','product','sales','shelf_productId','supermarket','warehouse']);
+var serverdb=mongojs('serverdb',['counter','increment','product','sales','shelf_productId','supermarket','warehouse']);
 app.use(bodyParser.json());
 
 app.listen(3000);
