@@ -276,3 +276,207 @@ app.post('/updateRegInfo', function(req, res){
 
 
 //Methods for updatereginfo.html page - end
+
+//Methods for execute
+
+      app.post('/productDetailsExecute',function(req,res){
+        console.log("HIIIIII")
+        console.log(req.body[0].desc);
+        
+        serverdb.supermarket.find({client_id: "WM2566"}).toArray(function(err,doc){
+           // console.log(doc[0].product_shelf[0].productType);
+            var data=[];
+           console.log( req.body.length);
+           console.log("Database");
+
+           console.log(doc[0].productInfo.length);
+           // var stock=doc[0].productInfo[j].stock_current;
+
+            //calculating the stock limit
+            for( var i=0; i < req.body.length; i++){
+              console.log("Inside")
+
+              for(var j=0; j < doc[0].productInfo.length; j++){
+
+                console.log("HIII");
+                if(doc[0].productInfo[j].product_id==req.body[i].product_id){
+                  var prevStock=doc[0].productInfo[j].stock_current;
+                  var stock= doc[0].productInfo[j].stock_current-1;
+                  doc[0].productInfo[j].stock_current=doc[0].productInfo[j].stock_current-1;
+            //update into serverdb
+            //update into client DB
+      // productInfo: {product_id: req.body[i].product_id }
+      console.log("Inside")
+      console.log("Product Stock"+doc[0].productInfo[j].product_id+" Stock: "+stock);
+      console.log("Previos Stock"+prevStock);
+      console.log(req.body[i].product_id);
+      var reqProd=req.body[i].product_id;
+      serverdb.supermarket.update({$and: [{client_id:"WM2566",  "productInfo.product_id": req.body[i].product_id}]}, {$set: {"productInfo.$.stock_current":stock, "productInfo.$.prev_stock":prevStock}}, 
+        function(err,docs){
+          if(err==null){
+            
+
+          }
+        });
+
+
+      /* {$set:{productInfo.$.stock_current: stock, productInfo.$.prev_stock: prevStock} }*/
+
+
+      clientdb.supermarket.update( {$and: [{client_id:"WM2566",  "productInfo.product_id": req.body[i].product_id}]}, {$set: {"productInfo.$.stock_current":stock, "productInfo.$.prev_stock":prevStock}}, 
+        function(err,d){
+
+        });
+      data.push({supermarket_id: "WM2566", product_id: reqProd, "stock_current": stock, "prev_stock":prevStock});
+            console.log(data)
+  
+
+    }  
+
+  }
+
+  }
+console.log(data);
+  res.json(data);
+
+  });
+    });
+
+      //Methods for execute
+
+      app.post('/productDetailsExecute',function(req,res){
+        console.log("HIIIIII")
+        console.log(req.body[0].desc);
+        
+        serverdb.supermarket.find({client_id: "WM2566"}).toArray(function(err,doc){
+           // console.log(doc[0].product_shelf[0].productType);
+            var data=[];
+           console.log( req.body.length);
+           console.log("Database");
+
+           console.log(doc[0].productInfo.length);
+           // var stock=doc[0].productInfo[j].stock_current;
+
+            //calculating the stock limit
+            for( var i=0; i < req.body.length; i++){
+              console.log("Inside")
+
+              for(var j=0; j < doc[0].productInfo.length; j++){
+
+                console.log("HIII");
+                if(doc[0].productInfo[j].product_id==req.body[i].product_id){
+                  var prevStock=doc[0].productInfo[j].stock_current;
+                  var stock= doc[0].productInfo[j].stock_current-1;
+                  doc[0].productInfo[j].stock_current=doc[0].productInfo[j].stock_current-1;
+            //update into serverdb
+            //update into client DB
+      // productInfo: {product_id: req.body[i].product_id }
+      console.log("Inside")
+      console.log("Product Stock"+doc[0].productInfo[j].product_id+" Stock: "+stock);
+      console.log("Previos Stock"+prevStock);
+      console.log(req.body[i].product_id);
+      var reqProd=req.body[i].product_id;
+      serverdb.supermarket.update({$and: [{client_id:"WM2566",  "productInfo.product_id": req.body[i].product_id}]}, {$set: {"productInfo.$.stock_current":stock, "productInfo.$.prev_stock":prevStock}}, 
+        function(err,docs){
+          if(err==null){
+            
+
+          }
+        });
+
+
+      /* {$set:{productInfo.$.stock_current: stock, productInfo.$.prev_stock: prevStock} }*/
+
+
+      clientdb.supermarket.update( {$and: [{client_id:"WM2566",  "productInfo.product_id": req.body[i].product_id}]}, {$set: {"productInfo.$.stock_current":stock, "productInfo.$.prev_stock":prevStock}}, 
+        function(err,d){
+
+        });
+      data.push({supermarket_id: "WM2566", product_id: reqProd, "stock_current": stock, "prev_stock":prevStock});
+            console.log(data)
+  
+
+    }  
+
+  }
+
+  }
+console.log(data);
+  res.json(data);
+
+  });
+    });
+//create and delete
+
+//methods for create and delete
+app.get('/counterlist',function(req,res){
+  console.log("Got request");
+  serverdb.counter.find(function(err,docs){
+    res.json(docs);
+  });
+});
+
+app.post('/addCounter',function(req,res){
+  console.log("adding..");
+  console.log(req.body);
+  serverdb.counter.insert(req.body, function(err,doc){
+    res.json(doc);
+  });
+});
+
+app.delete('/removeCounter/:id',function(req,res){
+  var id = req.params.id;
+  console.log("delete");
+  serverdb.counter.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
+    res.json(doc);
+  });
+});
+
+
+//Mehtods for market.html page - start
+
+  app.put('/writeAttr', function(req, res){
+
+    clientdb.supermarket.find({client_id: req.body.marketId}, function(err, doc){
+
+      if(doc.length){
+
+        clientdb.supermarket.update(
+          {client_id: req.body.marketId},
+          {$push : {counter: {counterId: req.body.counterId, counterName : req.body.counterName}}},
+          function(errr, result){
+            res.json("counter addedd Successfully into market.")
+        });
+
+      }else{
+        res.json("Market ID is not valid.");
+      }     
+    });
+
+  });
+
+//Mehtods for market.html page - end
+
+//Mehtods for market.html page - start
+
+  app.put('/write', function(req, res){
+
+    clientdb.supermarket.find({client_id: req.body.marketId}, function(err, doc){
+
+      if(doc.length){
+
+        clientdb.supermarket.update(
+          {client_id: req.body.marketId},
+          {$push : {counter: {counterId: req.body.counterId, counterName : req.body.counterName}}},
+          function(errr, result){
+            res.json("counter addedd Successfully into market.")
+        });
+
+      }else{
+        res.json("Market ID is not valid.");
+      }     
+    });
+
+  });
+
+//Mehtods for market.html page - end

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="superMarketApp">
 <head>
 	<title>Sales Cast</title>
 	<!-- Latest compiled and minified CSS -->
@@ -23,15 +23,36 @@
 	<div ng-include="'/header.html'"></div>
 </div>
 
-<div class="container">
-<h1>Data of template page will come here.</h1>
+<div class="container" ng-controller="sueprMarketController">
+<h2>Wrtie Attribute for SuperMarket</h2>
 
-<input ng-model="app">
+<form name="form">
+	<div class="form-group">
+      <label for="clientName">Super Market ID:</label>
+      <input type="text" class="form-control input-small" id="marketId" ng-model="marketWriteData.marketId" placeholder="Super Market Id" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Counter ID:</label>
+      <input type="text" class="form-control input-small" id="counterId" ng-model="marketWriteData.counterId" placeholder="Counter ID:" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Counter Name:</label>
+      <input type="text" class="form-control input-small" id="counterName" ng-model="marketWriteData.counterName" placeholder="Enter Counter Name" >
+    </div>
+
+    <div><button class="btn btn-primary" ng-click="writeMarketDetail()">Wrtie Details</button></div>
+
+</form>
+    <br>
+	<div>
+		<label>Server Response: <div><p>{{resData}}</p></div></label>
+	</div>
 
 
 
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="controllers/supermarketController.js"></script>
 </body>
 </html>
