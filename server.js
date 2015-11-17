@@ -432,3 +432,51 @@ app.delete('/removeCounter/:id',function(req,res){
   });
 });
 
+
+//Mehtods for market.html page - start
+
+  app.put('/writeAttr', function(req, res){
+
+    clientdb.supermarket.find({client_id: req.body.marketId}, function(err, doc){
+
+      if(doc.length){
+
+        clientdb.supermarket.update(
+          {client_id: req.body.marketId},
+          {$push : {counter: {counterId: req.body.counterId, counterName : req.body.counterName}}},
+          function(errr, result){
+            res.json("counter addedd Successfully into market.")
+        });
+
+      }else{
+        res.json("Market ID is not valid.");
+      }     
+    });
+
+  });
+
+//Mehtods for market.html page - end
+
+//Mehtods for market.html page - start
+
+  app.put('/write', function(req, res){
+
+    clientdb.supermarket.find({client_id: req.body.marketId}, function(err, doc){
+
+      if(doc.length){
+
+        clientdb.supermarket.update(
+          {client_id: req.body.marketId},
+          {$push : {counter: {counterId: req.body.counterId, counterName : req.body.counterName}}},
+          function(errr, result){
+            res.json("counter addedd Successfully into market.")
+        });
+
+      }else{
+        res.json("Market ID is not valid.");
+      }     
+    });
+
+  });
+
+//Mehtods for market.html page - end
