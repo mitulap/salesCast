@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.listen(3000);
 console.log("Server is running on port 3000");
 
-
+//Discover
 app.post('/discover',function(req,res){
   var supermarketId=req.body.supermarketId;
   
@@ -25,6 +25,8 @@ app.post('/discover',function(req,res){
     
 });
 
+
+//
 app.get('/populate',function(req,res){
 
   clientdb.supermarket.find(function(err,doc){
@@ -52,6 +54,8 @@ app.get('/populateProduct',function(req,res){
 
 })
 
+
+
 app.post('/productDetails',function(req,res){
   var productName=req.body.productId;
   
@@ -62,6 +66,9 @@ app.post('/productDetails',function(req,res){
     
 });
 
+
+
+//Read and Write
 app.post('/productDetailsRead',function(req,res){
   console.log("HIIIIII")
   console.log(req.body[0].desc);
@@ -120,6 +127,8 @@ app.post('/productDetailsRead',function(req,res){
     }); 
 });
 
+
+
 app.post('/shelfDetails',function(req,res){
 console.log("I am one 1")
 console.log(req.body)
@@ -151,6 +160,7 @@ app.get('/observeclients',function(req,res){
 
 });
 
+//Notify
 //Get supermarkets which have observe flag value 1 and get stock
 app.get('/getStock',function(req,res){
     console.log("Got GET request")
@@ -162,6 +172,8 @@ app.get('/getStock',function(req,res){
 
 }); //end of getstock
 
+
+//Cancel Observe
 //Toggle observeFlag for Supermarkets
 app.put('/toggleObserve/:id/:flagg',function(req,res){
   console.log("Toggle Observe");
@@ -277,7 +289,7 @@ app.post('/updateRegInfo', function(req, res){
 
 //Methods for updatereginfo.html page - end
 
-//Methods for execute
+//Methods for productDetailsExecute
 
       app.post('/productDetailsExecute',function(req,res){
         console.log("HIIIIII")
@@ -342,7 +354,7 @@ console.log(data);
   });
     });
 
-      
+     
 //create and delete
 
 //methods for create and delete
