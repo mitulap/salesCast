@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.listen(3000);
 console.log("Server is running on port 3000");
 
-
+//Discover
 app.post('/discover',function(req,res){
   var supermarketId=req.body.supermarketId;
   
@@ -25,6 +25,8 @@ app.post('/discover',function(req,res){
     
 });
 
+
+//
 app.get('/populate',function(req,res){
 
   clientdb.supermarket.find(function(err,doc){
@@ -52,6 +54,8 @@ app.get('/populateProduct',function(req,res){
 
 })
 
+
+
 app.post('/productDetails',function(req,res){
   var productName=req.body.productId;
   
@@ -62,6 +66,9 @@ app.post('/productDetails',function(req,res){
     
 });
 
+
+
+//Read and Write
 app.post('/productDetailsRead',function(req,res){
   console.log("HIIIIII")
   console.log(req.body[0].desc);
@@ -120,6 +127,8 @@ app.post('/productDetailsRead',function(req,res){
     }); 
 });
 
+
+
 app.post('/shelfDetails',function(req,res){
 console.log("I am one 1")
 console.log(req.body)
@@ -151,6 +160,7 @@ app.get('/observeclients',function(req,res){
 
 });
 
+//Notify
 //Get supermarkets which have observe flag value 1 and get stock
 app.get('/getStock',function(req,res){
     console.log("Got GET request")
@@ -162,6 +172,8 @@ app.get('/getStock',function(req,res){
 
 }); //end of getstock
 
+
+//Cancel Observe
 //Toggle observeFlag for Supermarkets
 app.put('/toggleObserve/:id/:flagg',function(req,res){
   console.log("Toggle Observe");
@@ -277,7 +289,7 @@ app.post('/updateRegInfo', function(req, res){
 
 //Methods for updatereginfo.html page - end
 
-//Methods for execute
+//Methods for productDetailsExecute
 
       app.post('/productDetailsExecute',function(req,res){
         console.log("HIIIIII")
@@ -342,70 +354,7 @@ console.log(data);
   });
     });
 
-      //Methods for execute
-
-      app.post('/productDetailsExecute',function(req,res){
-        console.log("HIIIIII")
-        console.log(req.body[0].desc);
-        
-        serverdb.supermarket.find({client_id: "WM2566"}).toArray(function(err,doc){
-           // console.log(doc[0].product_shelf[0].productType);
-            var data=[];
-           console.log( req.body.length);
-           console.log("Database");
-
-           console.log(doc[0].productInfo.length);
-           // var stock=doc[0].productInfo[j].stock_current;
-
-            //calculating the stock limit
-            for( var i=0; i < req.body.length; i++){
-              console.log("Inside")
-
-              for(var j=0; j < doc[0].productInfo.length; j++){
-
-                console.log("HIII");
-                if(doc[0].productInfo[j].product_id==req.body[i].product_id){
-                  var prevStock=doc[0].productInfo[j].stock_current;
-                  var stock= doc[0].productInfo[j].stock_current-1;
-                  doc[0].productInfo[j].stock_current=doc[0].productInfo[j].stock_current-1;
-            //update into serverdb
-            //update into client DB
-      // productInfo: {product_id: req.body[i].product_id }
-      console.log("Inside")
-      console.log("Product Stock"+doc[0].productInfo[j].product_id+" Stock: "+stock);
-      console.log("Previos Stock"+prevStock);
-      console.log(req.body[i].product_id);
-      var reqProd=req.body[i].product_id;
-      serverdb.supermarket.update({$and: [{client_id:"WM2566",  "productInfo.product_id": req.body[i].product_id}]}, {$set: {"productInfo.$.stock_current":stock, "productInfo.$.prev_stock":prevStock}}, 
-        function(err,docs){
-          if(err==null){
-            
-
-          }
-        });
-
-
-      /* {$set:{productInfo.$.stock_current: stock, productInfo.$.prev_stock: prevStock} }*/
-
-
-      clientdb.supermarket.update( {$and: [{client_id:"WM2566",  "productInfo.product_id": req.body[i].product_id}]}, {$set: {"productInfo.$.stock_current":stock, "productInfo.$.prev_stock":prevStock}}, 
-        function(err,d){
-
-        });
-      data.push({supermarket_id: "WM2566", product_id: reqProd, "stock_current": stock, "prev_stock":prevStock});
-            console.log(data)
-  
-
-    }  
-
-  }
-
-  }
-console.log(data);
-  res.json(data);
-
-  });
-    });
+     
 //create and delete
 
 //methods for create and delete
