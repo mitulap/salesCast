@@ -1,0 +1,414 @@
+{ 
+    "_id" : ObjectId("5642636a174204ddaa58517a"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-11T01:56:15.306+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646735b976d68881ef5827a", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:33:47.139Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "56467395cb18c75c1255778f", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:34:45.957Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564674822b15d2c023911651", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:38:42.480Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564674c22b15d2c023911652", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:39:46.028Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564674e82b15d2c023911653", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:40:24.531Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646758b2b15d2c023911654", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:43:07.545Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564675a14186094c1afc6e19", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:43:29.750Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564676414186094c1afc6e1a", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:46:09.655Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646778e4186094c1afc6e1b", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:51:42.176Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564677d94186094c1afc6e1c", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:52:57.791Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646783c4186094c1afc6e1d", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:54:36.982Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646787f4186094c1afc6e1e", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:55:43.814Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564678804186094c1afc6e1f", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:55:44.971Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "564678ff4186094c1afc6e20", 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-13T23:57:51.868Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646858dfa8a3238257e9ffd", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-14T00:51:25.455Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : "5646891ffa8a3238257e9ffe", 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : "2015-11-14T01:06:39.393Z", 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5647b12ce1c046c0223b1dea"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-14T22:09:48.123+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5647b12ce1c046c0223b1deb"), 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-14T22:09:48.126+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5647b12ce1c046c0223b1dec"), 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-14T22:09:48.126+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5647b51ed8f7fe542341ba4b"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-14T22:26:38.081+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5647b51ed8f7fe542341ba4c"), 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-14T22:26:38.081+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648ee7eedcbf0682ca160de"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:43:42.423+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648ee7eedcbf0682ca160df"), 
+    "productId" : "MR1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:43:42.424+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648ee98edcbf0682ca160e1"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:44:08.996+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648ee98edcbf0682ca160e0"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:44:08.996+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648ef74a1d4832c1edcff53"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:47:48.229+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648ef74a1d4832c1edcff54"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:47:48.229+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648eff2a1d4832c1edcff55"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:49:54.215+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5648eff2a1d4832c1edcff56"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T20:49:54.215+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564912e56dab9a4c2d087bcb"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T23:19:01.698+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564912e56dab9a4c2d087bca"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-15T23:19:01.698+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5649605eaa19478436f4f596"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-16T04:49:34.287+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("5649605eaa19478436f4f597"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-16T04:49:34.287+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a2528d30c7cd0077f5037"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-16T18:49:12.453+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a2528d30c7cd0077f5038"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-16T18:49:12.453+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a69867c5405d80c5c15f6"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-16T23:40:54.272+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a69867c5405d80c5c15f5"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-16T23:40:54.272+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a744d7c5405d80c5c15f7"), 
+    "productId" : "VG2", 
+    "shelf" : "S321", 
+    "productType" : "vegetables", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:26:53.383+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a74537c5405d80c5c15f8"), 
+    "productId" : "VG2", 
+    "shelf" : "S321", 
+    "productType" : "vegetables", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:26:59.869+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a74537c5405d80c5c15f9"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:26:59.869+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a77afa8bea63c210a444f"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:41:19.669+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a77afa8bea63c210a4450"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:41:19.669+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a77bfa8bea63c210a4453"), 
+    "productId" : "VG2", 
+    "shelf" : "S321", 
+    "productType" : "vegetables", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:41:35.780+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a77bfa8bea63c210a4452"), 
+    "productId" : "MR1", 
+    "shelf" : "S121", 
+    "productType" : "Cornflakes", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:41:35.780+0000"), 
+    "counterId" : "1"
+}
+{ 
+    "_id" : ObjectId("564a77bfa8bea63c210a4451"), 
+    "productId" : "PG1", 
+    "shelf" : "S111", 
+    "productType" : "biscuits", 
+    "supermarketId" : "WM2566", 
+    "timestamp" : ISODate("2015-11-17T00:41:35.780+0000"), 
+    "counterId" : "1"
+}

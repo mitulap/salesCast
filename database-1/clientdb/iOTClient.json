@@ -1,0 +1,35 @@
+{ 
+    "_id" : ObjectId("562ec657c8b51a48336e45a7"), 
+    "counter_id" : "1", 
+    "client_name" : "A", 
+    "client_id" : "WM2566", 
+    "server_id" : "001"
+}
+{ 
+    "_id" : ObjectId("562ec6e0564e2dec3ade38ba"), 
+    "counter_id" : "2", 
+    "client_name" : "A", 
+    "client_id" : "WM2565", 
+    "server_id" : "001"
+}
+{ 
+    "_id" : ObjectId("562ec7a637a6a3b4283c5909"), 
+    "counter_id" : "3", 
+    "client_name" : "A", 
+    "client_id" : "WM2565", 
+    "server_id" : "001"
+}
+{ 
+    "_id" : ObjectId("562ec801b2852c8c29f3913a"), 
+    "counter_id" : "4", 
+    "client_name" : "B", 
+    "client_id" : "WM2566", 
+    "server_id" : "001"
+}
+{ 
+    "_id" : ObjectId("562ed87afa1d85d81983e256"), 
+    "counter_id" : "6", 
+    "client_name" : null, 
+    "client_id" : null, 
+    "server_id" : "001"
+}

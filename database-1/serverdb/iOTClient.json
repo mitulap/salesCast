@@ -1,0 +1,18 @@
+{ 
+    "_id" : ObjectId("562eb4d6d28a67b979162a73"), 
+    "client_id" : "WM2566", 
+    "client_name" : "Walmart", 
+    "reg_id" : "7"
+}
+{ 
+    "_id" : ObjectId("562eb4f0d28a67b979162a74"), 
+    "client_id" : "WH001", 
+    "client_name" : "SanJoseWarehouse", 
+    "reg_id" : "6"
+}
+{ 
+    "_id" : ObjectId("562eb504d28a67b979162a75"), 
+    "client_id" : "1", 
+    "client_name" : "A", 
+    "reg_id" : "8"
+}

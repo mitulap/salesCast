@@ -1,0 +1,27 @@
+{ 
+    "_id" : ObjectId("562ec657c8b51a48336e45a6"), 
+    "counter_id" : "1", 
+    "counter_name" : "A", 
+    "supermarket_id" : "WM2566", 
+    "reg_id" : "5"
+}
+{ 
+    "_id" : ObjectId("5648eda397d356bc6bbe1bf7"), 
+    "counter_id" : "2.0", 
+    "counter_name" : "B", 
+    "supermarket_id" : "WM2568", 
+    "reg_id" : "6"
+}
+{ 
+    "_id" : ObjectId("564a717e97d302600c51e3c0"), 
+    "counter_id" : "3.0", 
+    "counter_name" : "C", 
+    "supermarket_id" : "WM2566", 
+    "reg_id" : "7"
+}
+{ 
+    "_id" : ObjectId("564a76f754910d44187125de"), 
+    "counter_name" : "D", 
+    "supermarket_id" : "WM2566", 
+    "counter_id" : "4.0"
+}

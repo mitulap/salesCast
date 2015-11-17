@@ -1,0 +1,21 @@
+{ 
+    "_id" : ObjectId("562e7f23cb0c793217393528"), 
+    "product_id" : "PG1", 
+    "product_name" : "ParleG", 
+    "product_price" : "$3", 
+    "desc" : "biscuits"
+}
+{ 
+    "_id" : ObjectId("562e7f52cb0c793217393529"), 
+    "product_id" : "MR1", 
+    "product_name" : "Marrie", 
+    "product_price" : "$0.99", 
+    "desc" : "cornflakes"
+}
+{ 
+    "_id" : ObjectId("564a73d797d302600c51e3ca"), 
+    "product_id" : "VG2", 
+    "product_name" : "Onions", 
+    "product_price" : "$2.99", 
+    "desc" : "vegetables"
+}

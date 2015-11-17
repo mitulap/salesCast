@@ -1,0 +1,32 @@
+{ 
+    "_id" : ObjectId("5642651d174204ddaa58517b"), 
+    "counterId" : 1.0, 
+    "supermarketId" : "WM2566", 
+    "registrationId" : "5", 
+    "counterName" : "A", 
+    "serverId" : "001"
+}
+{ 
+    "_id" : ObjectId("5648eda397d356bc6bbe1bf7"), 
+    "counterId" : 2.0, 
+    "supermarketId" : "WM2568", 
+    "registrationId" : "6", 
+    "counterName" : "B", 
+    "serverId" : "001"
+}
+{ 
+    "_id" : ObjectId("564a717e97d302600c51e3c0"), 
+    "counterId" : 3.0, 
+    "supermarketId" : "WM2566", 
+    "registrationId" : "7", 
+    "counterName" : "C", 
+    "serverId" : "001"
+}
+{ 
+    "_id" : ObjectId("564a775d97d302600c51e3cd"), 
+    "counterId" : 4.0, 
+    "supermarketId" : "WM2566", 
+    "registrationId" : "8", 
+    "counterName" : "D", 
+    "serverId" : "001"
+}

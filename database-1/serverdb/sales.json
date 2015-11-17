@@ -1,0 +1,32 @@
+{ 
+    "_id" : ObjectId("564283b697d3cec420b0dd53"), 
+    "supermarketId" : "WM2566", 
+    "counterId" : "1", 
+    "products" : [
+        {
+            "RfId" : "BSPG12565", 
+            "productId" : "PG1", 
+            "type" : "Biscuit", 
+            "price" : 5.0, 
+            "desc" : "Biscuits"
+        }, 
+        {
+            "RfId" : "BSMR12565", 
+            "productId" : "MR1", 
+            "type" : "Biscuit", 
+            "price" : 0.99, 
+            "desc" : "Biscuits"
+        }
+    ], 
+    "timestamp" : ISODate("2015-11-11T01:05:00.998+0000"), 
+    "count_product" : [
+        {
+            "productId" : "PG1", 
+            "count" : 1.0
+        }, 
+        {
+            "productId" : "MR1", 
+            "count" : 1.0
+        }
+    ]
+}

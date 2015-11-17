@@ -1,0 +1,64 @@
+{ 
+    "_id" : ObjectId("560db5d89c332e2b986ab651"), 
+    "endPoint" : "WM2566", 
+    "bindingMode" : "U", 
+    "lifetime" : "86500", 
+    "inventoryId" : NumberInt(2566985), 
+    "smsNumber" : 1.0, 
+    "objectList" : {
+        "id" : 2.0, 
+        "name" : "LWM2M Access Control", 
+        "instancetype" : "multiple", 
+        "mandatory" : "optional", 
+        "urn" : "TBD"
+    }, 
+    "version" : "1.0", 
+    "address" : "1450 Monterey Hwy, San Jose Sun Garden Center, CA 95110", 
+    "stockLimit" : "3000"
+}
+{ 
+    "_id" : ObjectId("561223cb8f25bd4ce80b1b75"), 
+    "endPoint" : "WM2563", 
+    "address" : " 777 Story Rd, San Jose, CA 95122", 
+    "bindingMode" : "U", 
+    "stockLimit" : NumberInt(2000), 
+    "lifetime" : "90000", 
+    "inventoryId" : NumberInt(25634553), 
+    "smsNumber" : NumberInt(1), 
+    "version" : "1.0", 
+    "objectList" : {
+        "id" : 2.0, 
+        "name" : "LWM2M Access Control", 
+        "instancetype" : "multiple", 
+        "mandatory" : "optional", 
+        "urn" : "TBD"
+    }
+}
+{ 
+    "_id" : ObjectId("5612b9664c003d12b021a55a"), 
+    "endPoint" : "WM2567", 
+    "address" : "5095 Almaden Expy", 
+    "bindingMode" : "U", 
+    "stockLimit" : NumberInt(7000), 
+    "lifetime" : "90000", 
+    "inventoryId" : NumberInt(2567863), 
+    "smsNumber" : NumberInt(0), 
+    "version" : "1.0", 
+    "objectList" : [
+
+    ]
+}
+{ 
+    "_id" : ObjectId("563999fe3b97fb2fc078face"), 
+    "endPoint" : "WM2565", 
+    "address" : "5095 Almaden Expy", 
+    "bindingMode" : "U", 
+    "stockLimit" : NumberInt(7000), 
+    "lifetime" : "85600", 
+    "inventoryId" : NumberInt(2565865), 
+    "smsNumber" : NumberInt(0), 
+    "version" : "1.0", 
+    "objectList" : [
+
+    ]
+}

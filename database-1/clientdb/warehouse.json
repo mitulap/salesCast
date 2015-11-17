@@ -1,0 +1,21 @@
+{ 
+    "_id" : ObjectId("562eb315d28a67b979162a6f"), 
+    "client_id" : "WH001", 
+    "client_name" : "SanJoseWarehouse", 
+    "address" : {
+        "street" : "Golden Road", 
+        "city" : "San Fransisco", 
+        "zip" : "95126", 
+        "country" : "USA"
+    }, 
+    "contact" : {
+        "phone" : "22222222", 
+        "email" : "sanjosewarehouse@walmart.com"
+    }, 
+    "productInfo" : {
+        "product_id" : "PG1", 
+        "stock_current" : "25000"
+    }, 
+    "regId" : "6", 
+    "serverId" : "001"
+}
