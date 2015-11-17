@@ -406,4 +406,29 @@ console.log(data);
 
   });
     });
+//create and delete
+
+//methods for create and delete
+app.get('/counterlist',function(req,res){
+  console.log("Got request");
+  serverdb.counter.find(function(err,docs){
+    res.json(docs);
+  });
+});
+
+app.post('/addCounter',function(req,res){
+  console.log("adding..");
+  console.log(req.body);
+  serverdb.counter.insert(req.body, function(err,doc){
+    res.json(doc);
+  });
+});
+
+app.delete('/removeCounter/:id',function(req,res){
+  var id = req.params.id;
+  console.log("delete");
+  serverdb.counter.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
+    res.json(doc);
+  });
+});
 
