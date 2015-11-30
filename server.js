@@ -382,7 +382,7 @@ app.post('/registrationWarehouse', function (req, res){
 //Methods for updatereginfo.html page - start
 
 app.post('/updateRegInfo', function(req, res){
-    console.log("Request: "+req.body[0]);
+    console.log("Request: "+req.body);
     serverdb.supermarket.find({$and: [{regId: req.body.regId}, {client_id: req.body.client_id}]}, function(err, doc){
       console.log("Inside Update"+req.body.client_name);
       if(doc.length){
