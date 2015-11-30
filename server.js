@@ -382,12 +382,12 @@ app.post('/registrationWarehouse', function (req, res){
 //Methods for updatereginfo.html page - start
 
 app.post('/updateRegInfo', function(req, res){
-    console.log("Request: "+req.body[0]);
-    serverdb.supermarket.find({$and: [{regId: req.body.regId}, {client_id: req.body.client_id}]}, function(err, doc){
+    console.log("Request: "+req.body);
+    serverdb.supermarket.find({$and: [{regId: req.body[0].regId}, {client_id: req.body[0].client_id}]}, function(err, doc){
       console.log("Inside Update"+req.body.client_name);
       if(doc.length){
         serverdb.supermarket.update(
-          {client_id: req.body.client_id},
+          {client_id: req.body[0].client_id},
           {$set: {client_name: req.body.client_name, address: req.body.address, contact:{phone: req.body.contact.phone, email: req.body.contact.email}}},
           function(errr, result){
             res.json("Data Updated Successfully.");

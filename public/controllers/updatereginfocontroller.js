@@ -42,17 +42,11 @@ myApp.controller('updateregistrationController',['$scope','$http', function($sco
 
 	
 	$scope.updateSupermarket = function(){
-		console.log($scope.superDetails.address);
+		console.log($scope.superDetails);
 			//$scope.superDet=$scope.superDetails;
-			$scope.superDet.client_id=$scope.superDetails.client_id;
-			$scope.superDet.client_name=$scope.superDetails.client_name;
-
-			$scope.superDet.address=$scope.superDetails.address;
-			$scope.superDet.regId=$scope.superDetails.regId;
-
-			$scope.superDet.contact=$scope.superDetails.contact;
+			
 			//var sendDetails=JSON.stringify($scope.superDetails)
-			$http.post('/updateRegInfo', $scope.superDet).success(function(response){
+			$http.post('/updateRegInfo', $scope.superDetails).success(function(response){
 				console.log(response);
 				$scope.resData = response;
 		});
