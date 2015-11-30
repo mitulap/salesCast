@@ -29,12 +29,17 @@
 </div>
 
 <div class="container" >
-<h1> Check In </h1>
+	<h1 align="center">Determining the Shelf </h1>
+<h4> <b><i>Check In Counter</i> </h4>
+<br>
 
 
 
 <div ng-controller="shelf">
-<label for="product">Client Details</label>
+
+	Supermarket: {{sprmrkt}}, Counter: {{countr}}
+	<br><br>
+<label for="product">Product Details</label>
 		<input list="products" class="form-control" placeholder="Product Name" id="product" ng-model="product.productId">
 			 <datalist id="products" ng-model="selectedProducts" >
 			<option data-ng-repeat="product in products" value=" {{product.product_name}}">select </option>
@@ -54,14 +59,14 @@
 	 	<th> Name</th>
 	 	<th> Type</th>
 	 	<th> Price</th>
-	 	
+	 	<th> Remove </th>
 <tr ng-repeat="p in productDetails">
 
 	<td>{{p.product_id}}</td>
 	<td>{{p.product_name}}</td>
 	<td>{{p.desc}}</td>
 	<td>{{p.product_price}}</td>
-	
+	<td><button >Remove</button> </td>
 </tr> 
 
 
