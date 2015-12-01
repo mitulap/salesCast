@@ -18,6 +18,35 @@ myApp.controller('updateregistrationController',['$scope','$http', function($sco
 
 	});
 
+	$http.get('/populateCounter').success(function(response){
+
+		if(response==undefined || response==null ||response[0]==null){
+			alert("No Counters in database");
+		}
+		else{
+			
+			$scope.counters=response;
+
+			console.log($scope.counters);
+		}
+
+	});
+
+	$http.get('/populateWarehouse').success(function(response){
+
+		if(response==undefined || response==null ||response[0]==null){
+			alert("No Counters in database");
+		}
+		else{
+			
+			$scope.warehouses=response;
+
+			console.log($scope.warehouses);
+		}
+
+	});
+
+
 
 	$scope.discover=function(){
 	
@@ -27,27 +56,34 @@ myApp.controller('updateregistrationController',['$scope','$http', function($sco
 			$scope.superDetails=response[0];
 			console.log($scope.superDetails);
 			
-		
-
 	});
 };
 
+$scope.discoverCounter=function(){
+	
+	$http.post('/discoverCounter', $scope.counterData).success(function(response){
+		
+
+			$scope.counterData=response[0];
+			console.log($scope.counterData);
+			
+	});
+};
+
+$scope.discoverWarehouse=function(){
+	
+	$http.post('/discoverWarehouse', $scope.warehouseData).success(function(response){
+		
+
+			$scope.warehouseData=response[0];
+			console.log("warehousedataa from server")
+			console.log($scope.warehouseData);
+			
+	});
+};
 	
 	$scope.updateSupermarket = function(){
 		console.log($scope.superDetails);
-			//$scope.superDet=$scope.superDetails;
-
-			
-			//var sendDetails=JSON.stringify($scope.superDetails)
-
-			// $scope.superDet.client_id=$scope.superDetails.client_id;
-			// $scope.superDet.client_name=$scope.superDetails.client_name;
-
-			// $scope.superDet.address=$scope.superDetails.address;
-			// $scope.superDet.regId=$scope.superDetails.regId;
-
-			// $scope.superDet.contact=$scope.superDetails.contact;
-			// //var sendDetails=JSON.stringify($scope.superDetails)
 
 			$http.post('/updateRegInfo', $scope.superDetails).success(function(response){
 				console.log(response);
@@ -55,5 +91,28 @@ myApp.controller('updateregistrationController',['$scope','$http', function($sco
 		});
 	};
 
+	$scope.updateCounter = function(){
+		console.log("inside Update Counter");
+		console.log($scope.counterData);
+
+			$http.post('/updateCounterInfo', $scope.counterData).success(function(response){
+				console.log(response);
+				$scope.counData = response;
+		});
+	};
+
+
+$scope.updateWarehouse = function(){
+		console.log("inside Update Warehouse");
+		console.log($scope.warehouseData);
+
+			$http.post('/updateWarehouseInfo', $scope.warehouseData).success(function(response){
+				console.log(response);
+				$scope.whsData = response;
+		});
+	};
+
 }]);
+
+
 

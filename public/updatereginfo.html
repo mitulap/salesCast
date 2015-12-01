@@ -150,33 +150,31 @@
     <form name="form1">
     <div id="counter">
       <div class="form-group" >
-        <label for="clientName">Counter Name:</label>
-        <input type="text" class="form-control input-small" id="clientName" ng-model="counterData.counter_name" placeholder="Enter Counter Name" >
-      </div>
-      <div class="form-group">
-        <label for="clientId">Counter's ID:</label>
-        <input type="text" class="form-control input-small" id="clientId" ng-model="counterData.counter_id" placeholder="Enter Counter ID" >
-      </div>
-      <div class="form-group">
-        <label for="clientId">Registration ID:</label>
-        <input type="text" class="form-control input-small" id="regId" ng-model="counterData.regId" placeholder="Enter Registration ID" >
-      </div>
-
-      <div class="form-group">
-
-       <label for="client">Client Details</label>
-       <input list="clients" class="form-control" placeholder="Search  Supermarket" id="client" ng-model="counterData.supermarket_id">
-       <datalist id="clients" ng-model="selectedSupermarket" >
-        <option data-ng-repeat="supermarket in supermarkets" value=" {{supermarket.client_id}}">select </option>
-
+        <label for="clientName">Counter Id:</label>
+      <input list="clientscounter" class="form-control" placeholder="Search  Counter" id="clientName" ng-model="counterData.counter_id" ng-change="discoverCounter()">
+       <datalist id="clientscounter" ng-model="selectedCounter" >
+        <option data-ng-repeat="counter in counters" value=" {{counter.counter_id}}">select </option>
       </datalist>
 
 
+      </div>
+      <div class="form-group">
+        <label for="clientId">Counter Name:</label>
+        <input type="text" class="form-control input-small" id="clientId" ng-model="counterData.counter_name" placeholder="Enter Counter ID" >
+      </div>
+      <div class="form-group">
+        <label for="clientId">Registration ID:</label>
+        <input type="text" class="form-control input-small" id="regId" ng-model="counterData.reg_id" placeholder="Registration ID" >
+      </div>
+      
+      <div class="form-group">
+        <label for="clientId">SuperMarket ID:</label>
+        <input type="text" class="form-control input-small" id="supermarketId" ng-model="counterData.supermarket_id" placeholder="Supermarket Id" >
+      </div>
 
       
-    </div>
 
-    <div><button class="btn btn-primary" ng-click="registercounter()">Register</button></div>
+    <div><button class="btn btn-primary" ng-click="updateCounter()">Update Counter</button></div>
 
     <br>
     <div>
@@ -191,41 +189,55 @@
   <form name="form2">
   <div id="warehouse">
     <div class="form-group" >
-      <label for="clientName">Warehouse Name:</label>
-      <input type="text" class="form-control input-small" id="clientName" ng-model="warehouse.client_name" placeholder="Enter Warehouse Name" >
+
+       <label for="clientName">Warehouse Id:</label>
+      <input list="clientswarehouse" class="form-control" placeholder="Search  Warehouse" id="warehouseName" ng-model="warehouseData.client_id" ng-change="discoverWarehouse()">
+       <datalist id="clientswarehouse" ng-model="selectedWarehouse" >
+        <option data-ng-repeat="warehouse in warehouses" value=" {{warehouse.client_id}}">select </option>
+      </datalist>
+
     </div>
     <div class="form-group">
       <label for="clientId">Warehouse ID:</label>
-      <input type="text" class="form-control input-small" id="clientId" ng-model="warehouse.client_id" placeholder="Enter Warehouse ID" >
+      <input type="text" class="form-control input-small" id="clientId" ng-model="warehouseData.client_id" placeholder="Enter Warehouse ID" >
     </div>
     <div class="form-group">
       <label for="clientId">Registration ID:</label>
-      <input type="text" class="form-control input-small" id="regId" ng-model="warehouse.regId" placeholder="Enter Registration ID" >
+      <input type="text" class="form-control input-small" id="regId" ng-model="warehouseData.regId" placeholder="Enter Registration ID" >
     </div>
     <div class="form-group">
-      <label for="clientId">Address</label>
-      <input type="text" class="form-control input-small" id="desc" ng-model="warehouse.address" placeholder="Enter Description" >
-    </div>
+          <label for="clientId">Address:</label>
+          <div class="input-group">
+            <input type="text" class="form-control input-small" id="desc" ng-model="warehouseData.address.street" placeholder="Street" >
+            <span class="input-group-addon"></span>
+            <input type="text" class="form-control input-small" id="desc1" ng-model="warehouseData.address.city" placeholder="City" >
+            <span class="input-group-addon"></span>
+            <input type="text" class="form-control input-small" id="desc2" ng-model="warehouseData.address.country" placeholder="Country" >
+            <span class="input-group-addon"></span>
+            <input type="text" class="form-control input-small" id="desc2" ng-model="warehouseData.address.zip" placeholder="Zip" >
+
+        </div>
+        </div>
 
     <div class="form-group">
-      <label for="clientId" ng-model="warehouse.contact">Contact:</label>
+      <label for="clientId" ng-model="warehouseData.contact">Contact:</label>
       <div class="form-group">
         <label for="clientId">Phone:</label>
-        <input type="text" class="form-control input-small" id="desc" ng-model="warehouse.contact.phone" placeholder="Enter Phone" >
+        <input type="text" class="form-control input-small" id="desc" ng-model="warehouseData.contact.phone" placeholder="Enter Phone" >
       </div>
 
       <div class="form-group">
         <label for="clientId">Email:</label>
-        <input type="text" class="form-control input-small" id="email" ng-model="warehouse.contact.email" placeholder="Enter email" >
+        <input type="text" class="form-control input-small" id="email" ng-model="warehouseData.contact.email" placeholder="Enter email" >
       </div>
 
     </div>
 
 
-    <div><button class="btn btn-primary" ng-click="registerWarehouse()">Register</button></div>
+    <div><button class="btn btn-primary" ng-click="updateWarehouse()">Update</button></div>
     <br>
     <div>
-      <label>Server Response: <div><p>{{warehouseData}}</p></div></label>
+      <label>Server Response: <div><p>{{whsData}}</p></div></label>
     </div>
 
   </div>
