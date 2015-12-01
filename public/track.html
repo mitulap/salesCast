@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="SalesCastObserve">
+<head>
+	<title>Sales Cast</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="controllers/trackController.js"></script>
+<script src="http://maps.google.com/maps/api/js"></script>
+<script src="ng-map.min.js"></script>
+
+
+<style type="text/css">
+	body{
+		/*margin-top: 60px;*/
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="navigation-panel">
+	<div ng-include="'/header.html'"></div>
+</div>
+
+<div class="container" ng-controller="MyController as vm">
+<h2> Live order tracking</h2>
+  <div class="half">
+    <label>Warehouse:</label>
+    <input places-auto-complete ng-model="vm.origin"
+      size=40 ng-disabled="vm.drivingMode" /> <br/>
+    <label>Customer Location: </label>
+    <input places-auto-complete ng-model="vm.destination"
+      ng-disabled="vm.drivingMode" size=40 /> <br/>
+    <label>Driving Speed :</label>
+    <input ng-model="vm.drivingSpeed" type="range"
+      ng-disabled="vm.drivingMode"> {{vm.drivingSpeed}} km / hour<br/>
+  </div>
+  <div class="half">
+    <button ng-click="vm.drive()" style="width: 200px;font-size:1em">
+      {{vm.drivingMode ?  'Stop' : 'Start Tracking' }}
+    </button> <br/>
+    <input type="radio" hidden ng-model="vm.driverMode" ng-value="true"> 
+    <input type="radio" hidden ng-model="vm.driverMode" ng-value="false">
+  </div>
+  <br style="clear:both" />
+  <div class="half" style="height: 700px;">
+    <br/>
+    <div id="map" style="width:100%;height:100%;">
+        <ng-map default-style="false" zoom="18" tilt="45"
+          center="1135 Karamea-Kohaihai Rd, Kahurangi National Park, Tasman">
+          <directions
+            draggable="true"
+            panel="directions-panel"
+            origin="{{vm.origin}}"
+            on-directions_changed="vm.directionsChanged(evt)"
+            destination="{{vm.destination}}">
+          </directions>
+          <street-view-panorama container="streetview"></street-view-panorama>
+          <marker ng-repeat="pos in vm.markers"
+            position="{{[pos.lat(), pos.lng()]}}"></marker>
+         </ng-map>
+    </div>
+  </div>
+  <div class="half" style="height: 70%;">
+    <div class="full-height" id="streetview"></div>
+  </div>
+  <br style="clear:both" />
+  <a href="" ng-click="vm.showDirectionsPanel = !vm.showDirectionsPanel">
+    {{vm.showDirectionsPanel ? 'Hide' : 'Show'}} Detailed Directions
+  </a>
+  <br style="clear:both" />
+  <div id="directions-panel" ng-show="vm.showDirectionsPanel"
+    style="display:inline-block;width:90%"></div>
+
+
+
+
+
+</div>
+
+</body>
+</html>
