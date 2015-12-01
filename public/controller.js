@@ -2,6 +2,7 @@ var myApp = angular.module('application',[]);
 
 myApp.controller('discover', ['$scope', '$http', function($scope, $http) {
 
+  
 
 $http.get('/populate').success(function(response){
 
@@ -11,11 +12,11 @@ $http.get('/populate').success(function(response){
 		else{
 			
 			$scope.supermarkets=response;
+
 			console.log($scope.supermarkets)
 		}
 
 	});
-
 
 
 
@@ -52,6 +53,15 @@ $scope.read=function(){
 
 myApp.controller('shelf',['$scope','$http', function($scope,$http){
 
+
+var param_array = window.location.href.split('?')[1].split('&')[0];
+var counter_array=window.location.href.split('?')[1].split('&')[1];
+
+
+//$scope.product.supermarketId=param_array.split('=')[1];
+//alert($scope.product.supermarketId)
+
+
 $http.get('/populateProduct').success(function(response){
 
 		if(response==undefined || response==null ||response[0]==null){
@@ -65,7 +75,11 @@ $http.get('/populateProduct').success(function(response){
 
 	});
 
-			$scope.productDetails=[];	
+$scope.sprmrkt=param_array.split('=')[1];
+$scope.countr=counter_array.split('=')[1];
+
+			$scope.productDetails=[];
+
 $scope.displayProduct=function(){
 
 	$http.post('/productDetails', $scope.product).success(function(response){
@@ -76,8 +90,8 @@ $scope.displayProduct=function(){
 		else{
 		
 			$scope.productDetails.push(response[0]);
-			
 			$scope.product.productId="";
+			
 			console.log($scope.productDetails);
 			
 			
@@ -90,8 +104,10 @@ $scope.displayProduct=function(){
 $scope.requestRead=function(){
 	var sendDetails=JSON.stringify($scope.productDetails);
 	
-	
-	$http.post('/productDetailsRead',sendDetails).success(function(response){
+	var sendSuper=param_array.split('=')[1];
+	var counter=counter_array.split('=')[1];
+	alert(counter)
+	$http.post('/productDetailsRead/'+sendSuper+'/'+counter,sendDetails).success(function(response){
 			
 			$scope.shelfDetails=response;
 			var details=$scope.shelfDet

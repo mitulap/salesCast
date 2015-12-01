@@ -26,10 +26,32 @@ app.post('/discover',function(req,res){
 });
 
 
+
+
 //
 app.get('/populate',function(req,res){
 
-  clientdb.supermarket.find(function(err,doc){
+  serverdb.supermarket.find(function(err,doc){
+
+    console.log(doc);
+    res.json(doc);
+  });
+
+})
+
+app.get('/populateCounter',function(req,res){
+
+  serverdb.counter.find(function(err,doc){
+
+    console.log(doc);
+    res.json(doc);
+  });
+
+})
+
+app.get('/populateWarehouse',function(req,res){
+
+  serverdb.warehouse.find(function(err,doc){
 
     console.log(doc);
     res.json(doc);
@@ -69,10 +91,13 @@ app.post('/productDetails',function(req,res){
 
 
 //Read and Write
-app.post('/productDetailsRead',function(req,res){
+app.post('/productDetailsRead/:super/:counter',function(req,res){
   console.log("HIIIIII")
+  console.log("Supermarket....  "+ req.params.super)
+  var supermarket=req.params.super;
+  var counter=req.params.counter;
   console.log(req.body[0].desc);
-   serverdb.supermarket.find({client_id: "WM2566"}).toArray(function(err,doc){
+   serverdb.supermarket.find({client_id: supermarket}).toArray(function(err,doc){
        // console.log(doc[0].product_shelf[0].productType);
        var data=[];
        console.log( req.body.length);
@@ -86,7 +111,7 @@ app.post('/productDetailsRead',function(req,res){
         if(doc[0].product_shelf[j].productType.toLowerCase()==req.body[i].desc.toLowerCase()){
           
           var shelf=doc[0].product_shelf[j].shelf
-          data.push({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"});
+          data.push({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: supermarket, timestamp: new Date(), counterId: counter});
           /* var batch = serverdb.shelf_productId.initializeUnorderedBulkOp({useLegacyOps: true});
           batch.insert({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"});*/
           /*serverdb.shelf_productId.insert({productId: req.body[i].product_id, shelf: shelf, productType: req.body[i].desc, supermarketId: "WM2566", timestamp: new Date(), counterId: "1"}, function(err,docs){
@@ -108,6 +133,7 @@ app.post('/productDetailsRead',function(req,res){
        console.log("Data"+ data);
 
        for(var k=0; k<data.length;k++){
+        console.log("DAAAATA"+data[k])
        serverdb.shelf_productId.insert(data[k], function(err,docs){
           
             
@@ -211,8 +237,11 @@ app.post('/bsAdd', function (req, res){
 
 app.post('/registration', function (req, res){
   console.log(req.body);
+  var countr=[{"counterId": 6,"counterName": "H"}, {"counterId": 8,"counterName": "L"}];
+  var prodInfo=[{"product_id": "PG1","stock_min": 20,"stock_current": 100,"stock_max": 200}, {"product_id": "MR1","stock_min": 20,"stock_current": 100,"stock_max": 200}];
+  var shelfInfo=[{"productType": "Biscuits","shelf": "S111"},{"productType": "Cornflakes","shelf": "S121"},{"productType": "Vegetables","shelf": "S321"}];
 
-  serverdb.registrationdata.find({clientId: req.body.clientId},
+  serverdb.supermarket.find({clientId: req.body.client_id},
     function(err, doc){
       console.log("Inside the ");
       if(doc.length){
@@ -220,12 +249,14 @@ app.post('/registration', function (req, res){
       }else{
 
         //
-        serverdb.bootstrapIds.find({ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.clientId}]}, function(err, doc){
+        serverdb.bootstrapIds.find({ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.client_id}]}, function(err, doc){
           console.log(doc);
           if(doc.length){
-            serverdb.registrationdata.insert(req.body, function(err, doc){
+            serverdb.supermarket.insert({client_id:req.body.client_id, client_name:req.body.client_name, address:req.body.address,regId: req.body.regId,warehouse: "WH002",observe: "0",contact:req.body.address, counter: countr, productInfo: prodInfo, product_shelf: shelfInfo}, function(err, doc){
               res.json("Client Registered Successfully");
             });
+
+           
           }else{
             res.json("Bootstrap your client to register");
           }
@@ -237,44 +268,155 @@ app.post('/registration', function (req, res){
   
 });
 
+//Registration of Counter
+
+app.post('/registrationCounter', function (req, res){
+  console.log(req.body);
+
+  
+  serverdb.counter.find({counter_id: req.body.counter_id},
+    function(err, doc){
+      console.log("Inside the ");
+      if(doc.length){
+        res.json("Client Already registered in database");
+      }else{
+
+        //
+        serverdb.bootstrapIds.find({ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.counter_id}]}, function(err, doc){
+          console.log(doc);
+          if(doc.length){
+            serverdb.counter.insert(req.body, function(err, doc){
+              res.json("Client Registered Successfully");
+            });
+
+           
+          }else{
+            res.json("Bootstrap your client to register");
+          }
+
+        });
+        
+      }
+  });
+  
+});
+
+
+
+//Registration of Warehouse
+
+app.post('/registrationWarehouse', function (req, res){
+  console.log(req.body);
+
+  serverdb.warehouse.find({counter_id: req.body.client_id},
+    function(err, doc){
+      console.log("Inside the ");
+      if(doc.length){
+        res.json("Client Already registered in database");
+      }else{
+
+        //
+        serverdb.bootstrapIds.find({ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.client_id}]}, function(err, doc){
+          console.log(doc);
+          if(doc.length){
+            serverdb.warehouse.insert(req.body, function(err, doc){
+              res.json("Client Registered Successfully");
+            });
+
+           
+          }else{
+            res.json("Bootstrap your client to register");
+          }
+
+        });
+        
+      }
+  });
+  
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Methods for registration.html page - end
 
 //Methods for deregistration.html page - start
 
 
-app.post('/deregistration', function(req, res){
+  app.post('/deregistration', function(req, res){
 
-  console.log(req.body);
+    console.log(req.body);
 
-  /*{ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.clientId}]}*/
-  serverdb.registrationdata.find({ $and: [{regId: req.body.regId}, {clientId: req.body.clientId}]}, function(err, doc){
-    if(doc.length){
-      serverdb.registrationdata.remove({clientId: req.body.clientId}, function(err, doc){
-        res.json("Client de-resitered Successfully.")
-      });
-    }else{
-      res.json("Client details not found. Please enter correct data to deregister.")
+    /*{ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.clientId}]}*/
+    serverdb.supermarket.find({ $and: [{regId: req.body.regId}, {client_id: req.body.clientId}]}, function(err, doc){
+      if(doc.length){
+        serverdb.supermarket.remove({client_id: req.body.clientId}, function(err, doc){
+          res.json("Client de-registered Successfully.")
+        });
+      }
 
-      /*db.contactList.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
-        res.json(doc);
-      });*/
-    }
+      else{
+        serverdb.counter.find({ $and: [{regId: req.body.regId}, {counter_id: req.body.clientId}]}, function(err, doc){
+         if(doc.length){
+          serverdb.counter.remove({counter_id: req.body.clientId}, function(err, doc){
+           res.json("Client de-registered Successfully.")
+         });
+
+        }else{
+          serverdb.warehouse.find({ $and: [{regId: req.body.regId}, {client_id: req.body.clientId}]}, function(err, doc){
+            if(doc.length){
+             serverdb.warehouse.remove({client_id: req.body.clientId}, function(err, doc){
+               res.json("Client de-registered Successfully.")
+             });
+
+
+           }else{
+
+            res.json("Client details not found. Please enter correct data to deregister.")
+                
+          
+               }
+             });
+
+          }});
+
+        }});  
+        /*db.contactList.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
+          res.json(doc);
+        });*/
+
   });
 
-});
+
+
 
 //Methods for deregistration.html page - end
 
 //Methods for updatereginfo.html page - start
 
 app.post('/updateRegInfo', function(req, res){
+    console.log("Request: "+req.body);
 
-    serverdb.registrationdata.find({$and: [{regId: req.body.regId}, {clientId: req.body.clientId}]}, function(err, doc){
-      console.log(req.body);
+    serverdb.supermarket.find({$and: [{regId: req.body.regId}, {client_id: req.body.client_id}]}, function(err, doc){
+
+   
+
+      console.log("Inside Update"+req.body.client_name);
       if(doc.length){
-        serverdb.registrationdata.update(
-          {clientId: req.body.clientId},
-          {$set: {clientName: req.body.clientName, desc: req.body.desc}},
+        serverdb.supermarket.update(
+          {client_id: req.body.client_id},
+          {$set: {client_name: req.body.client_name, address: req.body.address, contact:{phone: req.body.contact.phone, email: req.body.contact.email}}},
           function(errr, result){
             res.json("Data Updated Successfully.");
           });
@@ -286,7 +428,47 @@ app.post('/updateRegInfo', function(req, res){
 
 });
 
+app.post('/updateCounterInfo', function(req, res){
 
+    console.log("Request: "+ JSON.stringify(req.body));
+    serverdb.counter.find({counter_id: req.body.counter_id}, function(err, doc){
+      console.log("find success");
+      if(doc.length){
+        serverdb.counter.update(
+          {counter_id: req.body.counter_id},
+          {$set: {counter_name: req.body.counter_name, supermarket_id: req.body.supermarket_id,reg_id: req.body.reg_id }},
+          function(errr, result){
+            res.json("Data Updated Successfully.");
+          });
+      }else{
+        console.log(err);
+        res.json("Unable to update counter");
+      }
+
+    });
+
+});
+
+app.post('/updateWarehouseInfo', function(req, res){
+    console.log("Request: "+req.body);
+
+    serverdb.warehouse.find({client_id: req.body.client_id}, function(err, doc){
+
+      console.log("Inside Update"+req.body.client_name);
+      if(doc.length){
+        serverdb.warehouse.update(
+          {client_id: req.body.client_id},
+          {$set: {client_name: req.body.client_name, address: req.body.address,regId: req.body.regId, contact:{phone: req.body.contact.phone, email: req.body.contact.email}}},
+          function(errr, result){
+            res.json("Data Updated Successfully.");
+          });
+      }else{
+        res.json("Data does not match. Please enter correct Cleint Id and Registration Id");
+      }
+
+    });
+
+});
 //Methods for updatereginfo.html page - end
 
 //Methods for productDetailsExecute
@@ -429,3 +611,35 @@ app.delete('/removeCounter/:id',function(req,res){
   });
 
 //Mehtods for market.html page - end
+//method to update registration
+app.post('/discoverSupermarket',function(req,res){
+  var supermarketId=req.body.supermarketId;
+  
+   serverdb.supermarket.find({query:{client_id: supermarketId}},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    }); 
+    
+});
+
+app.post('/discoverCounter',function(req,res){
+  console.log("DISCOVER Counter");
+  var counterId=req.body.counter_id;
+console.log(req.body.counter_id);
+   serverdb.counter.find({query:{counter_id: counterId}},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    }); 
+    
+});
+
+app.post('/discoverWarehouse',function(req,res){
+  console.log("DISCOVER Warehouse");
+  var clientId=req.body.client_id;
+console.log(req.body.client_id);
+   serverdb.warehouse.find({query:{client_id: clientId}},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    }); 
+    
+});
