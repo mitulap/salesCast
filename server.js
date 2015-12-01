@@ -39,6 +39,26 @@ app.get('/populate',function(req,res){
 
 })
 
+app.get('/populateCounter',function(req,res){
+
+  serverdb.counter.find(function(err,doc){
+
+    console.log(doc);
+    res.json(doc);
+  });
+
+})
+
+app.get('/populateWarehouse',function(req,res){
+
+  serverdb.warehouse.find(function(err,doc){
+
+    console.log(doc);
+    res.json(doc);
+  });
+
+})
+
 /*app.post('/read',function(req,res){
   //
   clientdb.supermarket.findAndModify({query:{}, update: {$set{stock_current: }},new: true},function(err,doc){
@@ -408,7 +428,47 @@ app.post('/updateRegInfo', function(req, res){
 
 });
 
+app.post('/updateCounterInfo', function(req, res){
 
+    console.log("Request: "+ JSON.stringify(req.body));
+    serverdb.counter.find({counter_id: req.body.counter_id}, function(err, doc){
+      console.log("find success");
+      if(doc.length){
+        serverdb.counter.update(
+          {counter_id: req.body.counter_id},
+          {$set: {counter_name: req.body.counter_name, supermarket_id: req.body.supermarket_id,reg_id: req.body.reg_id }},
+          function(errr, result){
+            res.json("Data Updated Successfully.");
+          });
+      }else{
+        console.log(err);
+        res.json("Unable to update counter");
+      }
+
+    });
+
+});
+
+app.post('/updateWarehouseInfo', function(req, res){
+    console.log("Request: "+req.body);
+
+    serverdb.warehouse.find({client_id: req.body.client_id}, function(err, doc){
+
+      console.log("Inside Update"+req.body.client_name);
+      if(doc.length){
+        serverdb.warehouse.update(
+          {client_id: req.body.client_id},
+          {$set: {client_name: req.body.client_name, address: req.body.address,regId: req.body.regId, contact:{phone: req.body.contact.phone, email: req.body.contact.email}}},
+          function(errr, result){
+            res.json("Data Updated Successfully.");
+          });
+      }else{
+        res.json("Data does not match. Please enter correct Cleint Id and Registration Id");
+      }
+
+    });
+
+});
 //Methods for updatereginfo.html page - end
 
 //Methods for productDetailsExecute
@@ -556,6 +616,28 @@ app.post('/discoverSupermarket',function(req,res){
   var supermarketId=req.body.supermarketId;
   
    serverdb.supermarket.find({query:{client_id: supermarketId}},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    }); 
+    
+});
+
+app.post('/discoverCounter',function(req,res){
+  console.log("DISCOVER Counter");
+  var counterId=req.body.counter_id;
+console.log(req.body.counter_id);
+   serverdb.counter.find({query:{counter_id: counterId}},function(err,doc){
+        console.log(doc);
+        res.json(doc);
+    }); 
+    
+});
+
+app.post('/discoverWarehouse',function(req,res){
+  console.log("DISCOVER Warehouse");
+  var clientId=req.body.client_id;
+console.log(req.body.client_id);
+   serverdb.warehouse.find({query:{client_id: clientId}},function(err,doc){
         console.log(doc);
         res.json(doc);
     }); 
