@@ -217,6 +217,9 @@ app.post('/bsAdd', function (req, res){
 
 app.post('/registration', function (req, res){
   console.log(req.body);
+  var countr=[{"counterId": 6,"counterName": "H"}, {"counterId": 8,"counterName": "L"}];
+  var prodInfo=[{"product_id": "PG1","stock_min": 20,"stock_current": 100,"stock_max": 200}, {"product_id": "MR1","stock_min": 20,"stock_current": 100,"stock_max": 200}];
+  var shelfInfo=[{"productType": "Biscuits","shelf": "S111"},{"productType": "Cornflakes","shelf": "S121"},{"productType": "Vegetables","shelf": "S321"}];
 
   serverdb.supermarket.find({clientId: req.body.client_id},
     function(err, doc){
@@ -229,7 +232,7 @@ app.post('/registration', function (req, res){
         serverdb.bootstrapIds.find({ $and: [{_id: mongojs.ObjectId(req.body.regId)}, {clientId: req.body.client_id}]}, function(err, doc){
           console.log(doc);
           if(doc.length){
-            serverdb.supermarket.insert(req.body, function(err, doc){
+            serverdb.supermarket.insert({client_id:req.body.client_id, client_name:req.body.client_name, address:req.body.address,regId: req.body.regId,warehouse: "WH002",observe: "0",contact:req.body.address, counter: countr, productInfo: prodInfo, product_shelf: shelfInfo}, function(err, doc){
               res.json("Client Registered Successfully");
             });
 
@@ -250,6 +253,7 @@ app.post('/registration', function (req, res){
 app.post('/registrationCounter', function (req, res){
   console.log(req.body);
 
+  
   serverdb.counter.find({counter_id: req.body.counter_id},
     function(err, doc){
       console.log("Inside the ");
