@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<title>Sales Cast</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+<style type="text/css">
+	body{
+		/*margin-top: 60px;*/
+	}
+
+	.add-btn{
+
+		color: black;
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="navigation-panel">
+	<div ng-include="'/header.html'"></div>
+</div>
+
+
+
+<div class="container" ng-controller="MainController">
+<h2>Checkout orders for Super Market.</h2>
+
+
+<form name="form">
+	<div class="form-group">
+      <label for="clientName">Super Market Id:</label>
+      <input type="text" class="form-control input-small" id="clientName" ng-model="checkOutData.marketId" placeholder="Enter Client's Name" >
+    <br>
+    <button class="btn btn-warning add-btn" ng-click="getProductData()" value="Add Product">Add Product</button>
+
+    <table class="table" id="checkOut">
+    	<thead>
+    	<tr>
+    		<th>ID</th>
+    		<th>Quantity</th>
+    	</tr>
+
+    	<tr ng-repeat="rowContent in resData">
+	      <td>{{rowContent.product_id}}</td>
+        <td><input type="text" id="{{rowContent.product_id}}" placeholder="quantity"></td>
+
+	    </tr>
+    	</thead>
+<!-- ng-model="checkOutData.quantity" -->
+    </table>
+</div>
+    <!-- <div class="form-group">
+      <label for="clientId">Client's ID:</label>
+      <input type="text" class="form-control input-small" id="clientId" ng-model="regData.clientId" placeholder="Enter Client's ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Registration ID:</label>
+      <input type="text" class="form-control input-small" id="regId" ng-model="regData.regId" placeholder="Enter Registration ID" >
+    </div>
+    <div class="form-group">
+      <label for="clientId">Description:</label>
+      <input type="text" class="form-control input-small" id="desc" ng-model="regData.desc" placeholder="Enter Description" >
+    </div> -->
+
+    <div><button class="btn btn-primary" ng-click="sendCheckOutData()">CheckOut</button></div>
+
+    </form>
+    <br>
+	<div>
+		<label>Server Response: <div><p>{{serverResponse}}</p></div></label>
+	</div>
+
+
+    <br>
+    
+    
+<!-- <table>
+  <thead>
+    <tr>
+      <th width="200">Some Header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="rowContent in rows">
+      <td>{{rowContent}}</td>
+    </tr>
+  </tbody>
+</table>    --> 
+    
+
+</div>
+
+
+
+  
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
