@@ -20,7 +20,7 @@ continuously monitor the inventory and will be able to make certain decisions
 autonomously. With the use of Internet of Things, stores will be able to find the demand
 of each product and plan the inbound shipments accordingly to avoid delay.
 
- Background
+# Background
 Supply chain management involves managing how the goods and services flow within a
 distributed chain of retailers and factories. This chain starts right from movement of all
 the raw materials required to the generation of finished goods and how they reach from
@@ -30,7 +30,8 @@ One of the parts of this cycle is the communication between the warehouses and
 supermarkets for order supply chain management. If the supermarkets run out of stock,
 they immediately contact warehouses to order the needful. Considering the above case,
 we have integrated IOT to make this ordering process dynamic, fast and efficient.
- Objectives
+
+# Objectives
 ● To dynamically maintain a detailed information about the stock of the products
 that are being sold out.
 ● To dynamically determine the shelf number where the products has to be placed
