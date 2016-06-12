@@ -137,7 +137,7 @@ myApp.controller('MyController', function(NgMap,$timeout) {
     overviewPathIndex = 0; // set indexes to 0s
     detailedPathIndex = 0;
     vm.drivingMode = false;   // stop driving
-    toContinue = null;     // reset continuing positon
+    toContinue = null;     // reset continuing position
   }
 
   NgMap.getMap().then(function(map) {
